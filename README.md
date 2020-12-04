@@ -3,7 +3,7 @@ Lokalizacja geoportal.gov.pl w Google Maps
 
 **Instalacja**
 
-[Chrome Web Store](todo)
+[Chrome Web Store](https://chrome.google.com/webstore/detail/lokalizacja-geoportalgovp/bmalpmchldgpfnonnkephcfpblhipdhm)
 
 
 **Użycie**
