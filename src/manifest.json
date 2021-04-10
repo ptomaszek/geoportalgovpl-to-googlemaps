@@ -1,8 +1,8 @@
 {
   "manifest_version": 2,
-  "name": "Lokalizacja geoportal.gov.pl w Google Maps",
-  "version": "1.0.1",
-  "description": "Otwórz lokalizację z geoportal.gov.pl w Google Maps",
+  "name": "Podróżuj między Geoportal a Google Maps",
+  "version": "2.0.0",
+  "description": "Skrótem klawiszowym otwiera aktualną lokalizację z geoportal.gov.pl w Google Maps i na odwrót",
   "homepage_url": "https://github.com/ptomaszek/geoportalgovpl-to-googlemaps",
   "icons": {
     "48": "icons/icon_48.png",
@@ -19,7 +19,11 @@
   "content_scripts": [
     {
       "matches": [
-        "https://mapy.geoportal.gov.pl/*"
+        "*://*/*"
+      ],
+      "include_globs": [
+        "https://mapy.geoportal.gov.pl/*",
+        "https://*google.*/*"
       ],
       "js": [
         "content.js"
@@ -36,8 +40,9 @@
     "default_title": "Otwórz w Google Maps"
   },
   "permissions": [
-    "tabs",
-    "https://mapy.geoportal.gov.pl/*"
+    "https://mapy.geoportal.gov.pl/*",
+    "https://google.*/*",
+    "https://mygeodata.cloud/*"
   ],
   "commands": {
     "_execute_browser_action": {
