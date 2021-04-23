@@ -4,23 +4,29 @@ chrome.runtime.onMessage.addListener(function (msg, sender, callback) {
     if (msg.action === 'extractWgs84InDmsFormatFromGeoportal') {
         console.info("Extracting coords from Geoportal")
         if (document.querySelectorAll(".infoStripe .iy em")[1] != null) {
+            //fix the separator sign if Geoportal lang in Polish
+            let lat = document.querySelectorAll(".infoStripe .ix em")[1].innerText.replace(',', '.');
+            let lon = document.querySelectorAll(".infoStripe .iy em")[1].innerText.replace(',', '.');
+            console.debug(`Found Geoportal coords to be lat: ${lat} and lon: ${lon}`)
             callback({
-                //fix the separator sign if Geoportal lang in Polish
-                lat: document.querySelectorAll(".infoStripe .ix em")[1].innerText.replace(',', '.'),
-                lon: document.querySelectorAll(".infoStripe .iy em")[1].innerText.replace(',', '.')
+                lat: lat,
+                lon: lon
             });
+        }else {
+            callback()
         }
     } else if (msg.action === 'extractWgs84InDdFormatFromGoogle') {
         console.info("Extracting coords from Google")
         let coordsElement = document.querySelectorAll("#action-menu div.action-menu-entry-text")[0]
         if (coordsElement !== undefined) {
-            console.log(coordsElement.textContent)
             let [lat, lon] = coordsElement.textContent.split(', ')
-            console.log(lat, lon)
+            console.debug(`Found Google Maps coords to be lat: ${lat} and lon: ${lon}`)
             callback({
                 lat: lat,
                 lon: lon
             });
+        } else {
+            callback()
         }
     }
 });

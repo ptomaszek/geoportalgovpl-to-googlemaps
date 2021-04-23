@@ -37,8 +37,20 @@ Skrót można zmienić w opcjach rozszerzenia.
 1. Podbij wersję w `manifest.json`
 2. `(cd src && zip -r ../geoportalgovpl-to-googlemaps.zip .)`
 
+
+###
+Przydatne:
+https://mygeodata.cloud/cs2cs/
+Geoportal URL: ETRS89 / Poland CS92 (EPSG:2180)
+
+
+###
+Rozszerzenie wykorzystuje:
+https://github.com/proj4js/proj4js
+
+
 ### TODO
 
 - Firefox
 - wydzielić ładniej kod
-- zrezygnować z mygeodata na rzecz JS
+
