@@ -1,27 +1,29 @@
-Przełączaj lokalizację między geoportal.gov.pl a Google Maps
+Podróżuj między Geoportal i Google Maps
 ----------------------------------------
 
 ## Instalacja
 
-[Chrome Web Store](https://chrome.google.com/webstore/detail/lokalizacja-geoportalgovp/bmalpmchldgpfnonnkephcfpblhipdhm)
+- [Chrome Web Store](https://chrome.google.com/webstore/detail/lokalizacja-geoportalgovp/bmalpmchldgpfnonnkephcfpblhipdhm)
+- [Firefox](https://addons.mozilla.org/pl/firefox/addon/geoportal-google-maps/)
 
 ## Użycie
 
 ### Z Geoportal do Google Maps
 
 https://mapy.geoportal.gov.pl
-   ![](fromGeo.png)
+![](fromGeo.png)
 
 ### Z Google Maps do Geoportal
 
 https://www.google.pl/maps
-   ![](fromGMaps.png)
+![](fromGMaps.png)
 
 ### Konfiguracja
 
 Skrót można zmienić w opcjach rozszerzenia.
 
-- dla Chrome: [chrome://extensions/shortcuts](chrome://extensions/shortcuts))
+- dla Chrome: [chrome://extensions/shortcuts](chrome://extensions/shortcuts)
+- dla Firefox: https://support.mozilla.org/pl/kb/zarzadzanie-skrotami-klawiaturowymi-rozszerzen
 
 ## Development
 
@@ -30,20 +32,11 @@ Skrót można zmienić w opcjach rozszerzenia.
 1. Podbij wersję w `manifest.json`
 2. `(cd src && zip -r ../geoportalgovpl-to-googlemaps.zip .)`
 
+### Przydatne:
 
-###
-Przydatne:
 https://mygeodata.cloud/cs2cs/
 Geoportal URL: ETRS89 / Poland CS92 (EPSG:2180)
 
+### Rozszerzenie wykorzystuje:
 
-###
-Rozszerzenie wykorzystuje:
 https://github.com/proj4js/proj4js
-
-
-### TODO
-
-- Firefox
-- wydzielić ładniej kod
-

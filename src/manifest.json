@@ -1,8 +1,8 @@
 {
   "manifest_version": 2,
-  "name": "Podróżuj między Geoportal a Google Maps",
-  "version": "2.1.0",
-  "description": "Skrótem klawiszowym otwiera aktualną lokalizację z geoportal.gov.pl w Google Maps i na odwrót",
+  "name": "Podróżuj między Geoportal i Google Maps",
+  "version": "2.1.1",
+  "description": "Skrótem klawiszowym otwiera aktualną lokalizację z Geoportal w Google Maps i na odwrót",
   "homepage_url": "https://github.com/ptomaszek/geoportalgovpl-to-googlemaps",
   "icons": {
     "48": "icons/icon_48.png",
@@ -38,7 +38,7 @@
       "96": "icons/icon_96.png",
       "128": "icons/icon_128.png"
     },
-    "default_title": "Otwórz w Google Maps"
+    "default_title": "Przenieś na drugą mapę"
   },
   "permissions": [
     "activeTab",
@@ -49,7 +49,7 @@
   "commands": {
     "_execute_browser_action": {
       "suggested_key": {
-        "default": "Alt+Shift+D"
+        "default": "Alt+Shift+A"
       }
     }
   }
