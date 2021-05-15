@@ -15,14 +15,20 @@ chrome.tabs.onActivated.addListener(function (activeInfo) {
 
 //invoke action after shortcut is fired (simulates button click)
 chrome.browserAction.onClicked.addListener(function (tab) {
+    console.debug("Journey started!");
     if (tab === undefined) {
+        console.log("Tab undefined. Do nothing");
         return;
     }
     const {hostname} = new URL(tab.url);
+    console.debug(`Hostname: ${hostname}`);
+
     //from geoportal to google maps
     if (hostname.indexOf("geoportal.gov.pl") >= 0) {
+        console.debug(`From GEOPL to GMAPS...`);
         chrome.tabs.sendMessage(tab.id, {action: 'extractWgs84InDmsFormatFromGeoportal'},
             function (response) {
+                console.debug(`From GEOPL to GMAPS... Got response: ${response}`);
                 if (response == null) {
                     return
                 }
@@ -32,8 +38,10 @@ chrome.browserAction.onClicked.addListener(function (tab) {
     }
     //from google maps to geoportal; uses mygeodata.cloud to convert Google's WGS 84 (EPSG:4326) to Geoportal's ETRS89 / Poland CS92 (EPSG:2180)
     else if (hostname.indexOf("google.") >= 0) {
+        console.debug(`From GMAPS to GEOPL...`);
         chrome.tabs.sendMessage(tab.id, {action: 'extractWgs84InDdFormatFromGoogle'},
             function (response) {
+                console.debug(`From GMAPS to GEOPL... Got response: ${response}`);
                 if (response == null) {
                     return
                 }

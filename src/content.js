@@ -12,14 +12,16 @@ chrome.runtime.onMessage.addListener(function (msg, sender, callback) {
                 lat: lat,
                 lon: lon
             });
-        }else {
+        } else {
             callback()
         }
     } else if (msg.action === 'extractWgs84InDdFormatFromGoogle') {
         console.info("Extracting coords from Google")
-        let coordsElement = document.querySelectorAll("#action-menu div.action-menu-entry-text")[0]
-        if (coordsElement !== undefined) {
-            let [lat, lon] = coordsElement.textContent.split(', ')
+
+        let gmapsCoordsPattern = /\d*\.\d*,.\d*\.\d*/// e.g. "dd.dddddd, dd.ddddd"
+        let coords = gmapsCoordsPattern.exec(document.querySelector("#hovercard").innerHTML)[0]
+        if (coords !== undefined) {
+            let [lat, lon] = coords.split(', ')
             console.debug(`Found Google Maps coords to be lat: ${lat} and lon: ${lon}`)
             callback({
                 lat: lat,
