@@ -19,7 +19,7 @@ chrome.runtime.onMessage.addListener(function (msg, sender, callback) {
         console.info("Extracting coords from Google")
 
         let gmapsCoordsPattern = /\d*\.\d*,.\d*\.\d*/// e.g. "dd.dddddd, dd.ddddd"
-        let coords = gmapsCoordsPattern.exec(document.querySelector("#hovercard").innerHTML)[0]
+        let coords = gmapsCoordsPattern.exec(document.querySelector("#action-menu").innerHTML)[0]
         if (coords !== undefined) {
             let [lat, lon] = coords.split(', ')
             console.debug(`Found Google Maps coords to be lat: ${lat} and lon: ${lon}`)
