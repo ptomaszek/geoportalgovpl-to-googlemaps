@@ -1,20 +1,22 @@
+import proj4 from 'https://cdn.jsdelivr.net/npm/proj4@2.9.0/+esm';
+
 // disable or enable button
 chrome.tabs.onActivated.addListener(function (activeInfo) {
     chrome.tabs.getCurrent(tab => {
         // const {hostname} = new URL(tab.url);
         if (tab === undefined) {
         } else if (tab.url.indexOf("geoportal.gov.pl") >= 0) { //limit to geoportal
-            chrome.browserAction.enable(tab.id);
+            chrome.action.enable(tab.id);
         } else if (tab.url.indexOf("google.") >= 0) { //limit to google maps; TODO improve
-            chrome.browserAction.enable(tab.id);
+            chrome.action.enable(tab.id);
         } else {
-            chrome.browserAction.disable(tab.id);
+            chrome.action.disable(tab.id);
         }
     });
 });
 
 //invoke action after shortcut is fired (simulates button click)
-chrome.browserAction.onClicked.addListener(function (tab) {
+chrome.action.onClicked.addListener(function (tab) {
     console.debug("Journey started!");
     if (tab === undefined) {
         console.log("Tab undefined. Do nothing");

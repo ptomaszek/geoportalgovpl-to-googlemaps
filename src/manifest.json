@@ -1,7 +1,7 @@
 {
-  "manifest_version": 2,
+  "manifest_version": 3,
   "name": "Podróżuj między Geoportal i Google Maps",
-  "version": "2.1.5",
+  "version": "2.2.0",
   "description": "Skrótem klawiszowym (Alt-Shift-D) otwiera lokalizację między Geoportal i Google Maps",
   "homepage_url": "https://github.com/ptomaszek/geoportalgovpl-to-googlemaps",
   "icons": {
@@ -11,11 +11,8 @@
     "128": "icons/icon_128.png"
   },
   "background": {
-    "scripts": [
-      "ext_js/proj4-2.7.2.min.js",
-      "background.js"
-    ],
-    "persistent": false
+    "service_worker": "background.js",
+    "type": "module"
   },
   "content_scripts": [
     {
@@ -31,7 +28,7 @@
       ]
     }
   ],
-  "browser_action": {
+  "action": {
     "default_icon": {
       "48": "icons/icon_48.png",
       "64": "icons/icon_64.png",
@@ -41,13 +38,15 @@
     "default_title": "Przenieś na drugą mapę"
   },
   "permissions": [
-    "activeTab",
+    "activeTab"
+  ],
+  "host_permissions": [
     "https://mapy.geoportal.gov.pl/*",
     "https://google.com/maps/*",
     "https://google.pl/maps/*"
   ],
   "commands": {
-    "_execute_browser_action": {
+    "_execute_action": {
       "suggested_key": {
         "default": "Alt+Shift+D"
       }
