@@ -27,6 +27,11 @@ Skrót można zmienić w opcjach rozszerzenia.
 
 ## Development
 
+Kod istnieje w dwóch wersjach z powodu niekompatybilnej konfiguracji `manifest.json` między przeglądarkami, zobacz gałęzie:
+- `platform/firefox`
+- `platform/chrome` (tak jak `master`)
+
+
 ### Przygotowanie paczki do releasu**
 
 1. Podbij wersję w `manifest.json`
