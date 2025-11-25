@@ -18,10 +18,11 @@ chrome.runtime.onMessage.addListener(function (msg, sender, callback) {
     } else if (msg.action === 'extractWgs84InDdFormatFromGoogle') {
         console.info("Extracting coords from Google")
 
-        let gmapsCoordsPattern = /\d*\.\d*,.\d*\.\d*/// e.g. "dd.dddddd, dd.ddddd"
-        let coords = gmapsCoordsPattern.exec(document.querySelector("#action-menu").innerHTML)[0]
+        let gmapsCoordsPattern = /\d+\.\d+,\s*\d+\.\d+/; // e.g. "dd.dddddd, dd.ddddd"
+        let coords = gmapsCoordsPattern.exec(document.querySelector("div")?.textContent)?.[0];
+
         if (coords !== undefined) {
-            let [lat, lon] = coords.split(', ')
+            let [lat, lon] = coords.split(', ');
             console.debug(`Found Google Maps coords to be lat: ${lat} and lon: ${lon}`)
             callback({
                 lat: lat,
