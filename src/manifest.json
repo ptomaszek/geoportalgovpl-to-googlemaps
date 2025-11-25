@@ -40,6 +40,14 @@
     },
     "default_title": "Przenieś na drugą mapę"
   },
+  "browser_specific_settings": {
+    "gecko": {
+      "id": "{f4d27a40-d35d-404b-9c6f-c96e43c93a70}",
+      "data_collection_permissions": {
+        "required": ["none"]
+      }
+    }
+  },
   "permissions": [
     "activeTab",
     "https://mapy.geoportal.gov.pl/*",
